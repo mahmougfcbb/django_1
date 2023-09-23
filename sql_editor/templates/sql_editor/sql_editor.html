@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Editor</title>
+</head>
+<body>
+    <h1>SQL Editor</h1>
+    <form method="post" id="sql-form">
+        {% csrf_token %}
+        <textarea name="query" id="query" rows="5" cols="50" placeholder="Enter your SQL query"></textarea>
+        <br>
+        <input type="submit" value="Execute">
+    </form>
+    <h2>Recent Queries:</h2>
+    <ul>
+        {% for query in queries %}
+            <li>
+                <strong>{{ query.timestamp }}</strong>
+                <br>
+                <div><pre>{{ query.query }}</pre></div>
+                <div><pre>{{ query.result }}</pre></div>
+            </li>
+        {% empty %}
+            <li>No queries yet.</li>
+        {% endfor %}
+    </ul>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sql-form").submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "",
+                    data: $("#sql-form").serialize(),
+                    success: function (data) {
+                        // Update the query history without reloading the page
+                        $("#query").val("");
+                        $("#query").focus();
+                        $("#sql-form").after('<div><pre>' + data.result + '</pre></div>');
+                    },
+                    error: function (data) {
+                        alert("Error: " + data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

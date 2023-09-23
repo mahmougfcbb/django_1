@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - SQL Editor Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+     
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .team-member img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .back-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Welcome to SQL Editor Online, your go-to platform for SQL query execution. Our journey began with a passion for simplifying database tasks and making SQL accessible to everyone.</p>
+        <p>The purpose of this site is to facilitate the process of learning SQL for students, and everyone can benefit from it and perform queries</p>
+        <p>You can simply use it, benefit from it, learn SQL, and perform various instructions in SQL, including creating tables, querying the table, and other queries in SQL, which makes the learning process easy and enjoyable.</p>
+
+       
+        <a href="{% url 'sql_editor' %}" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>

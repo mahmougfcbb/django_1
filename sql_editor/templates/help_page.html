@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Help Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .question {
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .answer {
+            display: none;
+            padding-left: 20px;
+            margin-top: 5px;
+            border-left: 2px solid #007BFF;
+        }
+
+        .answer pre {
+            margin: 0;
+        }
+
+        .question:hover {
+            background-color: #ddd;
+        }
+
+        .question.active {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SQL Help Page</h1>
+       
+ <div class="question">1. How do I write a SELECT query?</div>
+    <div class="answer">
+        To retrieve data from a table, you can use a SELECT statement. For example:
+        <pre>SELECT * FROM your_table_name;</pre>
+    </div>
+
+  
+
+    <div class="question">2. How can I filter data in a SELECT query?</div>
+    <div class="answer">
+        You can use the WHERE clause to filter data in a SELECT query. For example:
+        <pre>SELECT * FROM your_table WHERE column_name = 'value';</pre>
+    </div>
+
+   
+
+    <div class="question">3. How do I create a new table in SQL?</div>
+    <div class="answer">
+        To create a new table, you can use the CREATE TABLE statement. For example:
+        <pre>
+CREATE TABLE new_table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+        </pre>
+    </div>
+     <div class="question">4. How can I perform basic math operations in SQL queries?</div>
+    <div class="answer">
+        SQL supports basic mathematical operations such as addition (+), subtraction (-), multiplication (*), and division (/). For example:
+        <pre>
+SELECT column1 + column2 AS sum_result FROM your_table;
+SELECT column1 - column2 AS difference_result FROM your_table;
+SELECT column1 * column2 AS product_result FROM your_table;
+SELECT column1 / column2 AS division_result FROM your_table;
+        </pre>
+    </div>
+
+    <div class="question">5. How do I calculate the average (mean) of a column?</div>
+    <div class="answer">
+        You can use the AVG() function to calculate the average of a column's values. For example:
+        <pre>SELECT AVG(column_name) AS average_value FROM your_table;</pre>
+    </div>
+
+    <div class="question">6. How can I find the maximum and minimum values in a column?</div>
+    <div class="answer">
+        To find the maximum and minimum values in a column, use the MAX() and MIN() functions, respectively. For example:
+        <pre>
+SELECT MAX(column_name) AS max_value FROM your_table;
+SELECT MIN(column_name) AS min_value FROM your_table;
+        </pre>
+    </div>
+        <!-- Add more questions and answers as needed -->
+      <div class="question">7. How do I concatenate two strings in SQL?</div>
+<div class="answer">
+    You can concatenate two strings in SQL using the CONCAT() function or the `||` operator. Here's an example with CONCAT():
+    <pre>
+SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM your_table;
+    </pre>
+</div>
+      <div class="question">8. How can I count the number of rows in a table?</div>
+<div class="answer">
+    To count the number of rows in a table, you can use the COUNT() function. For example:
+    <pre>
+SELECT COUNT(*) AS row_count FROM your_table;
+    </pre>
+</div>
+      <div class="question">9. How do I convert a string to uppercase in SQL?</div>
+<div class="answer">
+    To convert a string to uppercase in SQL, you can use the UPPER() function. For example:
+    <pre>
+SELECT UPPER(column_name) AS uppercase_string FROM your_table;
+    </pre>
+</div>
+      <div class="question">10. What is the purpose of the LENGTH function in SQL?</div>
+<div class="answer">
+    The LENGTH function in SQL is used to determine the length of a string, which is the number of characters in the string. For example:
+    <pre>
+SELECT LENGTH(column_name) AS string_length FROM your_table;
+    </pre>
+</div>
+
+      
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.question');
+        
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    question.classList.add('active');
+                } else {
+                    answer.style.display = 'none';
+                    question.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

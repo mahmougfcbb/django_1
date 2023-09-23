@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Editor</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Form styles */
+        form {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Label styles */
+        label {
+            font-weight: bold;
+        }
+
+        /* Textarea styles */
+        textarea {
+            width: 80%;
+            height: 150px;
+            resize: vertical;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        /* Button styles */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Result styles */
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #007bff;
+            text-align: center;
+        }
+
+        pre {
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            font-size: 16px;
+            margin: 10px auto;
+            display: block;
+            max-width: 80%;
+        }
+
+        /* Success message styles */
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the Fancy Header here -->
+    
+    <!-- Existing content for SQL Editor -->
+    {% include "header.html" %} 
+  
+    {# Include the header template #}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="sql_text">Enter SQL Query:</label><br>
+        <textarea id="sql_text" name="sql_text" placeholder="Write your SQL query here..." required></textarea><br>
+        <button type="submit">Execute</button>
+    </form>
+    
+    {% if success_message %}
+        <div class="alert-success">
+            <strong>Success!</strong> {{ success_message }}
+        </div>
+    {% endif %}
+    
+    {% if result %}
+        <h2>Result:</h2>
+        <pre>{{ result }}</pre>
+    {% endif %}
+    
+</body>
+</html>

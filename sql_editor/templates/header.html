@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        /* Reset some default styles for consistency */
+        .bo, h1, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Define styles for the header */
+        header {
+            background-color: #007bff; /* Header color */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Style the header links */
+        header ul {
+            list-style-type: none;
+        }
+
+        header ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bo">
+    <header>
+        <ul>
+            <li><a href="{% url 'sql_editor' %}">Home</a></li>
+
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'sql_tables' %}">SQL Tables</a></li>
+            <li><a href="{% url 'help_page' %}">SQL Help</a></li> 
+        </ul>
+    </header>
+</body>
+</html>
